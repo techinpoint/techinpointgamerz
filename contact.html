@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Techinpoint Gamerz - Contact</title>
+    <link rel="stylesheet" href="contact.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("YOUR_USER_ID");
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Techinpoint Gamerz Logo" class="logo-img">
+                <h1>Techinpoint Gamerz</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="content.html" class="nav-link">Content</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="user_email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+<br><br><br><br><br><br><br>
+    <footer>
+        <p>&copy; 2024 Techinpoint Gamerz. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('service_f1ve5ga', 'Ytemplate_vy74zub', this)
+                .then(function() {
+                    alert('Your message has been sent!');
+                }, function(error) {
+                    alert('Failed to send your message. Please try again.');
+                });
+        });
+    </script>
+</body>
+</html>
